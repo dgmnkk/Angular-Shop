@@ -5,9 +5,12 @@ export interface ProductModel {
     categoryName: string;
     discount: number;
     price: number;
-    imageUrl: string | null;
+    images: string[];
     description: string | null;
     inStock: boolean;
+}
+export interface DummyProductModel {
+    products: ProductModel[];
 }
 
 export interface CategoryModel {

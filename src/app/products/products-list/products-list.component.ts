@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent implements OnInit {
-  displayedColumns: string[] = ["image", "id", "name", "price", "rating", "actions"];
+  displayedColumns: string[] = ["image", "id", "name", "price", "rating"];
   products: ProductModel[] = [];
   tableSource = new MatTableDataSource<ProductModel>([]);
 
@@ -25,7 +25,7 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsService.getAll().subscribe(res => {
-      this.products = res;
+      this.products = res.products;
       this.refreshTable();
     });
   }

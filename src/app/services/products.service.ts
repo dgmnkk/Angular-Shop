@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CategoryModel, ProductModel } from './products';
+import { CategoryModel, DummyProductModel, ProductModel } from './products';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -12,8 +12,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<ProductModel[]> {
-    return this.http.get<ProductModel[]>(api);
+  getAll(): Observable<DummyProductModel> {
+    return this.http.get<DummyProductModel>(api);
   }
 
   getCategories(): Observable<CategoryModel[]> {
