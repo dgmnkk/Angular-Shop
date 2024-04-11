@@ -8,5 +8,18 @@
         <button mat-icon-button routerLink="/products">
             <mat-icon>list</mat-icon>
         </button>
+        <div class="separator"></div>
+
+        @if(accountsService.currUser() == null) {
+        <button mat-icon-button routerLink="/login">
+            <mat-icon>login</mat-icon>
+        </button>
+        }
+        @if(accountsService.currUser()) {
+        <span>Hello, {{accountsService.currUser()?.email}}</span>
+        <button mat-icon-button (click)="onLogout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+        }
     </mat-toolbar>
 </header>
